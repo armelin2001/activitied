@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void buttonLogIn(View view){
-        if(editTextName.getText().toString().contains(name) && editTextPassword.getText().toString().contains(password)){
+        if(name.equals(editTextName.getText().toString())&& password.equals(editTextPassword.getText().toString())){
             Intent intent = new Intent(
                     MainActivity.this, GalleryActivity.class);
             intent.putExtra("data",name);

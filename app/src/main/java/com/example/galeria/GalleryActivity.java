@@ -22,8 +22,12 @@ public class GalleryActivity extends AppCompatActivity {
         imageViewGallery = findViewById(R.id.imageViewGallery);
         imageName = findViewById(R.id.imageName);
         textViewCounter = findViewById(R.id.textViewCounter);
-        textViewCounter.setText(0+"/"+images.length);
+        textViewCounter.setText(1+"/"+images.length);
         Bundle extras = getIntent().getExtras();
+        Drawable drawable = getResources().getDrawable(
+                getResources().getIdentifier(images[0],"drawable",
+                        getPackageName()),this.getTheme());
+        imageViewGallery.setImageDrawable(drawable);
         if(extras != null) {
             String aux = extras.getString("data");
             setTitle(getString(R.string.galery_title)+" - "+aux);
@@ -40,7 +44,6 @@ public class GalleryActivity extends AppCompatActivity {
         imageName.setText(images[selectedImage]);
         textViewCounter.setText(selectedImage+"/"+images.length);
         imageViewGallery.setImageDrawable(drawable);
-
         selectedImage ++;
     }
     public void goPreviousImage(View view){
